@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="title" content="ST-DGCN: Spatio-Temporal Dynamic Graph Convolutional Network with Covariance Energy Pooling for EEG Biometrics">
+  <meta name="description" content="DCLT is a unified framework formulating EEG channel selection as Differentiable Structure Learning for lightweight, high-accuracy IoT brainprint authentication.">
+  <meta name="keywords" content="EEG, Brainprint Recognition, Channel Selection, Vision Transformer, STE, Edge Deployment">
+  <meta name="author" content="作者1, 作者1, 作者1, Z作者1, 作者1, 作者1, 作者1">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Tianjin University">
+  <meta property="og:title" content="ST-DGCN: Spatio-Temporal Dynamic Graph Convolutional Network with Covariance Energy Pooling for EEG Biometrics">
+  <meta property="og:description" content="DCLT is a unified framework formulating EEG channel selection as Differentiable Structure Learning for lightweight, high-accuracy IoT brainprint authentication.">
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/DCLT-project">
+  <meta property="og:image" content="static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DCLT Framework - Research Preview">
+  <meta property="article:author" content="xxx">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="EEG">
+  <meta property="article:tag" content="Brainprint Recognition">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <meta name="twitter:title" content="Edge-Deployable Brainprint Authentication for Resource-Constrained IoT">
+  <meta name="twitter:description" content="DCLT is a unified framework formulating EEG channel selection as Differentiable Structure Learning for lightweight, high-accuracy IoT brainprint authentication.">
+  <meta name="twitter:image" content="static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="DCLT Framework - Research Preview">
+
+  <meta name="citation_title" content="ST-DGCN: Spatio-Temporal Dynamic Graph Convolutional Network with Covariance Energy Pooling for EEG Biometrics">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_author" content="xxx">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>ST-DGCN: Spatio-Temporal Dynamic Graph Convolutional Network with Covariance Energy Pooling for EEG Biometrics</title>
+  
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "ST-DGCN: Spatio-Temporal Dynamic Graph Convolutional Network with Covariance Energy Pooling for EEG Biometrics",
+    "description": "DCLT is a unified framework formulating EEG channel selection as Differentiable Structure Learning for lightweight, high-accuracy IoT brainprint authentication.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "xxx",
+        "affiliation": { "@type": "Organization", "name": "xxx" }
+      },
+      {
+        "@type": "Person",
+        "name": "xxx",
+        "affiliation": { "@type": "Organization", "name": "xxx" }
+      }
+    ],
+    "url": "https://YOUR_DOMAIN.com/DCLT-project",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["EEG", "Brainprint Recognition", "Channel Selection", "Vision Transformer", "STE", "Edge Deployment"],
+    "abstract": "Electroencephalogram (EEG)-based brainprint recognition possesses significant security value; however, existing recognition methods face bottlenecks, including insufficient identification capacity for large-scale populations and interference from cross-cognitive or emotional states. To address these issues, this paper proposes an end-to-end Spatio-Temporal Dynamic Graph Convolutional Network (ST-DGCN) for robust EEG biometric authentication. First, the network adaptively infers the dynamic functional connectivity topology through a differentiable dynamic brain graph inference module to eliminate artifact interference from the individual's real-time mental states. Subsequently, a spatio-temporal dynamic graph convolution is utilized to jointly model the spatial topological manifold and the temporal dynamic evolution features of the EEG signals. Finally, a covariance energy pooling module is constructed to extract the second-order statistical energy distribution across channels, thereby building a deep discriminative representation with high statistical stability. Experiments conducted on three public datasets with different task paradigms—PhysioNet MI (a large-scale cohort of 109 subjects), DEAP, and AMIGOS (involving cross-state scenarios and low-SNR edge devices)—demonstrate that the performance of ST-DGCN significantly outperforms existing state-of-the-art methods. It achieves a peak accuracy of 99.59% in large-scale population tasks, providing an effective approach for constructing highly robust and secure next-generation brainprint authentication systems.",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  }
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              
+              <h2 class="title is-1 publication-title">ST-DGCN: Spatio-Temporal Dynamic Graph Convolutional Network with Covariance Energy Pooling for EEG Biometrics</h1>
+              
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 1</a><sup>1,*</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 2</a><sup>2,*</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 3</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 4</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 5</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 6</a><sup>1,†</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Author 7</a><sup>1,†</sup>
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Anonymous Institution</span><br>
+                <span class="author-block"><sup>2</sup>Anonymous Institution</span>
+                <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution | <sup>†</sup>Corresponding Authors</small></span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper(Coming Soon)</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://www.physionet.org/content/eegmmidb/1.0.0/" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>PhysioNet MI</span>
+                    </a>
+                  </span>
+
+
+                  <span class="link-block">
+                    <a href="https://ieeexplore.ieee.org/document/5871728" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>DEAP</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/1702.02510" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>AMIGOS</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://anonymous.4open.science/r/ST-DGCN-Code-21E0/" target="_blank" class="external-link button is-normal is-rounded is-link">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Electroencephalography (EEG)-based brainprint recognition has attracted considerable attention due to its liveness, resistance to forgery, and high security. However, the complex coupling between identity-related information and cognitive activities makes it highly susceptible to cross-task interference, leading to degraded identity representations and limited model generalization performance. To address this issue, this paper proposes an electrophysiologically interpretable Spatio-Temporal Interaction Attention and Cross-Gating Network (STIA-CGNet). First, a multi-band feature reconstruction module is employed to project raw EEG signals into multiple physiological frequency bands, enabling complementary spectral representations. Next, a spatio-temporal decoupled attention encoder is designed to separately model temporal dynamics and inter-regional spatial topological relationships, facilitating fine-grained identity feature extraction. Finally, a cross-gating fusion mechanism is introduced to adaptively aggregate multi-band information via a learnable band interaction matrix, enhancing discriminative identity representation while suppressing irrelevant interference features. Extensive experiments on multiple public datasets demonstrate the superior recognition performance and generalization ability of the proposed method. In particular, the model achieves a recognition accuracy of 99.83% on the PhysioNet dataset involving 109 subjects, and also exhibits strong robustness on the DEAP and AMIGOS datasets, validating its effectiveness and potential for large-scale brainprint recognition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Methodology & Results -->
+<!-- ===================== Methodology Carousel ===================== -->
+
+<!-- ===================== Methodology ===================== -->
+
+<!-- Bulma Carousel CSS -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+
+<!-- Bulma Carousel JS -->
+<script defer
+src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
+
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+
+    <!-- Title -->
+    <h2 class="title is-3 has-text-centered mb-6">
+      Methodology
+    </h2>
+
+    <!-- Carousel -->
+    <div id="results-carousel" class="carousel">
+
+      <!-- ===================== Item 1 ===================== -->
+      <div class="item">
+
+        <div class="method-card">
+
+          <div class="image-wrapper">
+            <img
+              src="static/images/carousel1.jpg"
+              alt="DCLT Framework Architecture"
+              class="method-image"
+            >
+          </div>
+
+          <div class="method-text">
+            This figure illustrates the proposed end-to-end Spatio-Temporal Dynamic Graph Convolutional Network (ST-DGCN) for EEG-based identity authentication.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================== Item 2 ===================== -->
+      <div class="item">
+
+        <div class="method-card">
+
+          <div class="image-wrapper">
+            <img
+              src="static/images/carousel2.png"
+              alt="Real-world EEG Data Acquisition"
+              class="method-image"
+            >
+          </div>
+
+          <div class="method-text">
+            Visualization of dynamic functional connectivity and covariance energy distributions. (a) Dynamic functional connectivity matrix of Subject 0. (b) Dynamic functional connectivity matrix of Subject 1. The color intensity represents the strength of functional connectivity between EEG channels. (c) Covariance energy topographic map of Subject 0 obtained from the Covariance Energy Pooling (CEP) module. (d) Covariance energy topographic map of Subject 1. Warmer colors indicate higher energy concentrations, whereas cooler colors represent lower energy levels.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================== Item 3 ===================== -->
+      <div class="item">
+
+        <div class="method-card">
+
+          <div class="image-wrapper">
+            <img
+              src="static/images/carousel3.png"
+              alt="Performance consistency evolution"
+              class="method-image"
+            >
+          </div>
+
+          <div class="method-text">
+            t-SNE visualization of the global feature representation F_global learned by ST-DGCN.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ===================== Style ===================== -->
+
+<style>
+
+  /* Carousel overall */
+  #results-carousel {
+
+    margin-top: 20px;
+
+    overflow: hidden;
+  }
+
+  /* Hide extra preview slides */
+  #results-carousel .carousel-container {
+
+    overflow: hidden !important;
+  }
+
+  /* Each slide */
+  #results-carousel .item {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+  }
+
+  /* Main card */
+  .method-card {
+
+    width: 100%;
+    max-width: 1100px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.08);
+
+    padding: 30px;
+
+    transition: all 0.3s ease;
+  }
+
+  /* Image area */
+  .image-wrapper {
+
+    width: 100%;
+    height: 580px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  /* Image */
+  .method-image {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+  }
+
+  /* Description */
+  .method-text {
+
+    margin-top: 24px;
+
+    text-align: center;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    color: #444;
+
+    padding: 0 20px;
+  }
+
+  /* Navigation buttons beautify */
+  .carousel-nav-left,
+  .carousel-nav-right {
+
+    background: rgba(255,255,255,0.95) !important;
+
+    border-radius: 50% !important;
+
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.12);
+
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  /* Pagination dots */
+  .carousel-pagination .pagination-link {
+
+    background: #d0d0d0 !important;
+  }
+
+  .carousel-pagination .pagination-link.is-active {
+
+    background: #3273dc !important;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+
+    .method-card {
+
+      padding: 18px;
+    }
+
+    .image-wrapper {
+
+      height: 280px;
+    }
+
+    .method-text {
+
+      font-size: 0.95rem;
+
+      padding: 0;
+    }
+  }
+
+</style>
+
+
+<!-- ===================== Carousel Init ===================== -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  bulmaCarousel.attach('#results-carousel', {
+
+    slidesToScroll: 1,
+    slidesToShow: 1,
+
+    loop: true,
+
+    infinite: true,
+
+    autoplay: true,
+    autoplaySpeed: 3500,
+
+    pauseOnHover: true,
+
+    pagination: true,
+    navigation: true,
+
+  });
+
+});
+
+</script>
+
+
+<!-- ===================== Carousel Initialization ===================== -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  bulmaCarousel.attach('#results-carousel', {
+
+    slidesToScroll: 1,
+    slidesToShow: 1,
+
+    loop: true,
+
+    autoplay: true,
+    autoplaySpeed: 3000,
+
+    pauseOnHover: true,
+
+    pagination: true,
+    navigation: true,
+
+    infinite: true,
+
+  });
+
+});
+
+</script>
+
+   <!-- ===================== Experimental Results Carousel ===================== -->
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">
+      Experimental Results
+    </h2>
+
+    <div class="content has-text-justified">
+      <p>
+        To comprehensively evaluate the representational performance of the proposed STIA-CGNet, this section introduces nine state-of-the-art (SOTA) baseline models in the EEG representation field for quantitative comparison.
+      </p>
+    </div>
+
+    <!-- Carousel -->
+    <div id="results-table-carousel" class="carousel">
+
+      <!-- ===================== Table I ===================== -->
+      <div class="item">
+
+        <div class="box mt-5">
+
+          <h3 class="title is-5 has-text-centered">
+            Table 1 shows the performance of different models on the PhysioNet MI dataset under a large-scale 109-subject classification setting.
+          </h3>
+
+          <div class="table-image-container">
+            <img
+              src="static/images/table1.png"
+              alt="Table 1: PhysioNet MI Results"
+              class="table-carousel-image"
+            >
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ===================== Table II ===================== -->
+      <div class="item">
+
+        <div class="box mt-5">
+
+          <h3 class="title is-5 has-text-centered">
+            Table 2: Comparison of recognition performance of different models on cross-state emotion datasets (%).
+          </h3>
+
+          <div class="table-image-container">
+            <img
+              src="static/images/table2.png"
+              alt="Table 2: Random vs Optimal Selection"
+              class="table-carousel-image"
+            >
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ===================== Table III ===================== -->
+      <div class="item">
+
+        <div class="box mt-5">
+
+          <h3 class="title is-5 has-text-centered">
+            Table 3: Ablation study results and analysis of core components.
+          </h3>
+
+          <div class="table-image-container">
+            <img
+              src="static/images/table3.png"
+              alt="Table 3: DEAP and AMIGOS Results"
+              class="table-carousel-image"
+            >
+          </div>
+
+        </div>
+      </div>
+
+
+     
+
+     
+
+
+
+      
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ===================== Carousel Style ===================== -->
+
+<style>
+
+  /* Carousel spacing */
+  #results-table-carousel {
+    margin-top: 30px;
+  }
+
+  /* Each carousel item */
+  #results-table-carousel .item {
+    min-height: 450px;
+    padding: 10px;
+  }
+
+  /* Table image container */
+  .table-image-container {
+
+    width: 100%;
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  /* Table image */
+  .table-carousel-image {
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+  }
+
+  /* Box style enhancement */
+  #results-table-carousel .box {
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    height: 100%;
+  }
+
+  /* Mobile adaptation */
+  @media screen and (max-width: 768px) {
+
+    .table-image-container {
+      height: 350px;
+    }
+
+    #results-table-carousel .item {
+      min-height: auto;
+    }
+
+    #results-table-carousel .title.is-5 {
+      font-size: 1rem;
+    }
+  }
+
+</style>
+
+
+<!-- ===================== Carousel Initialization ===================== -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  bulmaCarousel.attach('#results-table-carousel', {
+
+    slidesToScroll: 1,
+    slidesToShow: 1,
+
+    loop: true,
+
+    autoplay: true,
+    autoplaySpeed: 4000,
+
+    pauseOnHover: true,
+
+    pagination: true,
+    navigation: true,
+
+    infinite: true,
+
+  });
+
+});
+
+</script>
+
+
+
+    
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
