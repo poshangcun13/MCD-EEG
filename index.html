@@ -1407,121 +1407,62 @@ Evaluate general EEG representation learning and transferable neural embeddings.
 
 
 
-<!-- ===================== Dataset Organization ===================== -->
+<!-- ===================== Dataset Statistics ===================== -->
 
-<section class="section is-light" id="organization">
+<section class="section" id="statistics">
 
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
 
     <h2 class="title is-3 has-text-centered">
-      Dataset Organization
+      Dataset Statistics
     </h2>
 
     <div class="content has-text-centered mb-6">
 
       <p style="max-width:900px;margin:auto;line-height:1.8;">
 
-        MCD-EEG is organized in a standardized hierarchical structure to facilitate reproducible research. Each participant contains synchronized EEG recordings collected under multiple cognitive tasks and recording sessions, together with metadata and behavioral annotations.
+        MCD-EEG provides comprehensive statistical analyses of participant demographics,
+        EEG recordings, experimental paradigms, and benchmark distributions. These
+        statistics highlight the diversity and scale of the benchmark while illustrating
+        the structured distribution shifts introduced by the multi-stage cognitive protocol.
 
       </p>
 
     </div>
 
-    <div class="columns is-vcentered">
+    <!-- ===================== Row 1 ===================== -->
 
-      <!-- Left -->
+    <div class="columns">
 
-      <div class="column is-6">
+      <div class="column">
 
-<pre class="dataset-tree">
+        <div class="box stats-box">
 
-MCD-EEG/
+          <h4 class="title is-5 has-text-centered">
 
-├── Read/
+            Participant Distribution
 
-│   ├── EEG_deaf_1408.npz
+          </h4>
 
-│   ├── EEG_hearing_1472.npz
+          <img src="static/images/stat_subjects.png"
+               class="stats-image">
 
-│
-
-├── Memory/
-
-│   ├── EEG_deaf_1408.npz
-
-│   ├── EEG_hearing_1472.npz
-
-│
-
-├── labels.csv
-
-├── metadata.csv
-
-├── channel_locations.csv
-
-├── benchmark_protocols/
-
-│      closed_set.json
-
-│      cross_task.json
-
-│      cross_recap.json
-
-│
-
-└── README.md
-
-</pre>
+        </div>
 
       </div>
 
-      <!-- Right -->
+      <div class="column">
 
-      <div class="column is-6">
+        <div class="box stats-box">
 
-        <div class="organization-flow">
+          <h4 class="title is-5 has-text-centered">
 
-          <div class="flow-box">
+            Experimental Paradigm
 
-            EEG Signals
+          </h4>
 
-          </div>
-
-          <div class="flow-arrow">
-
-            ↓
-
-          </div>
-
-          <div class="flow-box">
-
-            Preprocessing
-
-          </div>
-
-          <div class="flow-arrow">
-
-            ↓
-
-          </div>
-
-          <div class="flow-box">
-
-            Standardized Splits
-
-          </div>
-
-          <div class="flow-arrow">
-
-            ↓
-
-          </div>
-
-          <div class="flow-box">
-
-            Benchmark Evaluation
-
-          </div>
+          <img src="static/images/stat_trials.png"
+               class="stats-image">
 
         </div>
 
@@ -1529,77 +1470,89 @@ MCD-EEG/
 
     </div>
 
-    <!-- Bottom Cards -->
+    <!-- ===================== Row 2 ===================== -->
 
-    <div class="columns is-multiline mt-5">
+    <div class="columns">
 
-      <div class="column is-3">
+      <div class="column">
 
-        <div class="box org-card">
+        <div class="box stats-box">
 
-          <h4 class="title is-6">
-            EEG Signals
+          <h4 class="title is-5 has-text-centered">
+
+            EEG Electrode Layout
+
           </h4>
 
-          <p>
-
-            High-density multichannel EEG recordings stored in compressed NumPy format.
-
-          </p>
+          <img src="static/images/stat_channels.png"
+               class="stats-image">
 
         </div>
 
       </div>
 
-      <div class="column is-3">
+      <div class="column">
 
-        <div class="box org-card">
+        <div class="box stats-box">
 
-          <h4 class="title is-6">
-            Metadata
+          <h4 class="title is-5 has-text-centered">
+
+            Benchmark Split
+
           </h4>
 
-          <p>
-
-            Subject demographics, recording sessions, and cognitive task annotations.
-
-          </p>
+          <img src="static/images/stat_benchmark.png"
+               class="stats-image">
 
         </div>
 
       </div>
 
-      <div class="column is-3">
+    </div>
 
-        <div class="box org-card">
+    <!-- ===================== Summary ===================== -->
 
-          <h4 class="title is-6">
-            Protocols
-          </h4>
+    <div class="notification is-info is-light mt-6">
 
-          <p>
+      <div class="columns has-text-centered">
 
-            Official train/test splits for closed-set, cross-task, and cross-Re-cap evaluation.
+        <div class="column">
 
-          </p>
+          <h3 class="title is-4">45</h3>
+
+          <p>Participants</p>
 
         </div>
 
-      </div>
+        <div class="column">
 
-      <div class="column is-3">
+          <h3 class="title is-4">5632</h3>
 
-        <div class="box org-card">
+          <p>EEG Trials</p>
 
-          <h4 class="title is-6">
-            Documentation
-          </h4>
+        </div>
 
-          <p>
+        <div class="column">
 
-            Complete documentation including preprocessing, benchmark settings, and usage examples.
+          <h3 class="title is-4">60</h3>
 
-          </p>
+          <p>Channels</p>
+
+        </div>
+
+        <div class="column">
+
+          <h3 class="title is-4">2</h3>
+
+          <p>Sessions</p>
+
+        </div>
+
+        <div class="column">
+
+          <h3 class="title is-4">4</h3>
+
+          <p>Benchmark Tasks</p>
 
         </div>
 
@@ -1613,93 +1566,53 @@ MCD-EEG/
 
 <style>
 
-.dataset-tree{
+.stats-box{
 
-background:#1f2937;
+border-radius:18px;
 
-color:#f3f4f6;
+transition:.35s;
 
-padding:28px;
-
-border-radius:14px;
-
-font-size:15px;
-
-line-height:1.8;
-
-overflow:auto;
-
-box-shadow:0 8px 25px rgba(0,0,0,.15);
-
-}
-
-.organization-flow{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
 
 height:100%;
 
 }
 
-.flow-box{
-
-width:230px;
-
-padding:18px;
-
-background:#3273dc;
-
-color:white;
-
-border-radius:12px;
-
-text-align:center;
-
-font-weight:600;
-
-box-shadow:0 8px 20px rgba(50,115,220,.25);
-
-}
-
-.flow-arrow{
-
-font-size:34px;
-
-margin:12px 0;
-
-color:#3273dc;
-
-}
-
-.org-card{
-
-height:100%;
-
-border-radius:16px;
-
-transition:.3s;
-
-box-shadow:0 8px 20px rgba(0,0,0,.05);
-
-}
-
-.org-card:hover{
+.stats-box:hover{
 
 transform:translateY(-6px);
 
-box-shadow:0 16px 30px rgba(0,0,0,.12);
+box-shadow:0 18px 36px rgba(0,0,0,.12);
+
+}
+
+.stats-image{
+
+width:100%;
+
+border-radius:12px;
+
+margin-top:12px;
+
+}
+
+.notification{
+
+border-radius:18px;
+
+padding:30px;
+
+}
+
+.notification .title{
+
+color:#3273dc;
+
+margin-bottom:8px;
 
 }
 
 </style>
-
-
 
 
 
