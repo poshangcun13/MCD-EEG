@@ -764,397 +764,246 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+<!-- ===================== Dataset Overview ===================== -->
 
+<section class="section" id="dataset-overview">
 
+  <div class="container is-max-desktop">
 
-<head>
+    <!-- Title -->
+    <h2 class="title is-3 has-text-centered">
+      Dataset Overview
+    </h2>
 
-    <meta charset="UTF-8">
+    <!-- Description -->
+    <div class="content has-text-justified mb-6">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>MCD-EEG Dataset</title>
-
-    <link rel="stylesheet"
-          href="css/style.css">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-</head>
-
-<body>
-
-<!-- ================= NAVIGATION ================= -->
-
-<header>
-
-    <div class="container nav">
-
-        <div class="logo">
-
-            MCD-EEG
-
-        </div>
-
-        <nav>
-
-            <a href="#overview">Overview</a>
-
-            <a href="#statistics">Statistics</a>
-
-            <a href="#benchmark">Benchmark</a>
-
-            <a href="#download">Download</a>
-
-            <a href="#citation">Citation</a>
-
-        </nav>
+      <p>
+        MCD-EEG is the first large-scale EEG benchmark specifically designed for evaluating robust brain representation learning under structured cognitive distribution shifts. Unlike existing public EEG datasets that primarily focus on single-session classification tasks, MCD-EEG introduces controlled cross-task and cross-session distribution shifts through a multi-stage cognitive paradigm involving reading, mathematical interference, and delayed memory retrieval. In addition, the dataset explicitly incorporates a complete EEG cap removal and reattachment (Re-cap) protocol to simulate realistic long-term acquisition variability, together with recordings from both deaf and hearing populations for fairness evaluation.
+      </p>
 
     </div>
 
-</header>
+    <!-- Statistics Cards -->
 
+    <div class="columns is-multiline is-centered">
 
-<!-- ================= HERO ================= -->
+      <!-- Participants -->
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box has-text-centered overview-card">
 
-<section class="hero">
+          <span class="icon is-large has-text-link">
+            <i class="fas fa-users fa-2x"></i>
+          </span>
 
-    <div class="overlay"></div>
+          <h3 class="title is-4 mt-3">
+            45
+          </h3>
 
-    <div class="container hero-content">
+          <p class="heading">
+            Participants
+          </p>
 
-        <h1>
-
-            MCD-EEG
-
-        </h1>
-
-        <h2>
-
-            A Multi-stage Cognitive Disturbance EEG Benchmark
-
-        </h2>
-
-        <p>
-
-            The first large-scale EEG benchmark for evaluating robust brain intelligence under structured cognitive distribution shifts.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a class="btn primary">Paper</a>
-
-            <a class="btn">Dataset</a>
-
-            <a class="btn">Code</a>
-
-            <a class="btn">Benchmark</a>
+          <p>
+            22 Deaf <br>
+            23 Hearing
+          </p>
 
         </div>
+      </div>
 
-    </div>
+      <!-- EEG -->
 
-</section>
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box has-text-centered overview-card">
 
+          <span class="icon is-large has-text-link">
+            <i class="fas fa-wave-square fa-2x"></i>
+          </span>
 
+          <h3 class="title is-4 mt-3">
+            60
+          </h3>
 
-<!-- ================= OVERVIEW ================= -->
+          <p class="heading">
+            EEG Channels
+          </p>
 
-<section id="overview">
-
-    <div class="container">
-
-        <h2 class="section-title">
-
-            Dataset Overview
-
-        </h2>
-
-        <div class="overview-grid">
-
-            <div class="overview-text">
-
-                <p>
-
-                    MCD-EEG is a novel EEG benchmark designed to investigate robust brain intelligence under structured cognitive perturbations.
-
-                </p>
-
-                <p>
-
-                    The benchmark contains synchronized EEG recordings from deaf and hearing participants during multi-stage language processing tasks.
-
-                </p>
-
-                <p>
-
-                    Unlike existing EEG datasets that mainly evaluate single-session recognition accuracy, MCD-EEG explicitly introduces cross-task cognitive distribution shifts, enabling systematic evaluation of robustness, fairness, and generalization.
-
-                </p>
-
-            </div>
-
-            <div class="overview-image">
-
-                <img src="assets/paradigm.png">
-
-            </div>
+          <p>
+            High-density EEG <br>
+            1000 Hz Sampling
+          </p>
 
         </div>
+      </div>
 
-    </div>
+      <!-- Trials -->
 
-</section>
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box has-text-centered overview-card">
 
+          <span class="icon is-large has-text-link">
+            <i class="fas fa-database fa-2x"></i>
+          </span>
 
+          <h3 class="title is-4 mt-3">
+            5632
+          </h3>
 
+          <p class="heading">
+            EEG Trials
+          </p>
 
-<!-- ================= STATISTICS ================= -->
-
-<section id="statistics">
-
-    <div class="container">
-
-        <h2 class="section-title">
-
-            Dataset Statistics
-
-        </h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <span class="counter" data-target="45">0</span>
-
-                <p>Participants</p>
-
-            </div>
-
-            <div class="card">
-
-                <span class="counter" data-target="5632">0</span>
-
-                <p>EEG Trials</p>
-
-            </div>
-
-            <div class="card">
-
-                <span class="counter" data-target="60">0</span>
-
-                <p>Channels</p>
-
-            </div>
-
-            <div class="card">
-
-                <span class="counter" data-target="1000">0</span>
-
-                <p>Sampling Rate (Hz)</p>
-
-            </div>
-
-            <div class="card">
-
-                <span class="counter" data-target="128">0</span>
-
-                <p>Sentences</p>
-
-            </div>
-
-            <div class="card">
-
-                <span class="counter" data-target="4">0</span>
-
-                <p>Sentence Types</p>
-
-            </div>
+          <p>
+            128 Sentences <br>
+            Multi-stage Paradigm
+          </p>
 
         </div>
+      </div>
 
-    </div>
+      <!-- Sessions -->
 
-</section>
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box has-text-centered overview-card">
 
+          <span class="icon is-large has-text-link">
+            <i class="fas fa-history fa-2x"></i>
+          </span>
 
+          <h3 class="title is-4 mt-3">
+            2
+          </h3>
 
+          <p class="heading">
+            Recording Sessions
+          </p>
 
-<!-- ================= BENCHMARK ================= -->
+          <p>
+            Read <br>
+            Re-cap
+          </p>
 
-<section id="benchmark">
+        </div>
+      </div>
 
-    <div class="container">
+      <!-- Annotation -->
 
-        <h2 class="section-title">
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box has-text-centered overview-card">
 
+          <span class="icon is-large has-text-link">
+            <i class="fas fa-tags fa-2x"></i>
+          </span>
+
+          <h3 class="title is-4 mt-3">
+            Rich
+          </h3>
+
+          <p class="heading">
+            Annotations
+          </p>
+
+          <p>
+            Identity <br>
+            Population <br>
+            Behavior
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Tasks -->
+
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box has-text-centered overview-card">
+
+          <span class="icon is-large has-text-link">
+            <i class="fas fa-brain fa-2x"></i>
+          </span>
+
+          <h3 class="title is-4 mt-3">
+            4
+          </h3>
+
+          <p class="heading">
             Benchmark Tasks
+          </p>
 
-        </h2>
-
-        <div class="benchmark-grid">
-
-            <div class="task">
-
-                <h3>
-
-                    Brainprint Recognition
-
-                </h3>
-
-                <p>
-
-                    Closed-set EEG identification across all participants.
-
-                </p>
-
-            </div>
-
-            <div class="task">
-
-                <h3>
-
-                    Cross-task Recognition
-
-                </h3>
-
-                <p>
-
-                    Read → Memory recognition under cognitive shifts.
-
-                </p>
-
-            </div>
-
-            <div class="task">
-
-                <h3>
-
-                    Cross-population Recognition
-
-                </h3>
-
-                <p>
-
-                    Robust recognition across deaf and hearing populations.
-
-                </p>
-
-            </div>
-
-            <div class="task">
-
-                <h3>
-
-                    Functional Connectivity
-
-                </h3>
-
-                <p>
-
-                    Transfer Entropy based network analysis.
-
-                </p>
-
-            </div>
+          <p>
+            Closed-set <br>
+            Cross-task <br>
+            Cross-Re-cap <br>
+            Fairness
+          </p>
 
         </div>
+      </div>
 
     </div>
 
-</section>
-
-
-
-
-<!-- ================= DOWNLOAD ================= -->
-
-<section id="download">
-
-    <div class="container">
-
-        <h2 class="section-title">
-
-            Download
-
-        </h2>
-
-        <div class="download-box">
-
-            <a class="download-btn">Dataset</a>
-
-            <a class="download-btn">Paper</a>
-
-            <a class="download-btn">Code</a>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
+<!-- ===================== Dataset Overview Style ===================== -->
 
+<style>
 
+.overview-card{
 
+    height:100%;
 
-<!-- ================= CITATION ================= -->
+    border-radius:18px;
 
-<section id="citation">
+    transition:.3s;
 
-    <div class="container">
+    border:1px solid #ececec;
 
-        <h2 class="section-title">
-
-            Citation
-
-        </h2>
-
-<pre>
-
-@article{mcdeeg2027,
-
-title={MCD-EEG: A Multi-stage Cognitive Disturbance EEG Benchmark},
-
-author={Menghao Fang et al.},
-
-year={2027}
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
 
 }
 
-</pre>
+.overview-card:hover{
 
-    </div>
+    transform:translateY(-6px);
 
-</section>
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.overview-card .heading{
+
+    font-size:0.82rem;
+
+    color:#666;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+.overview-card .title{
+
+    color:#3273dc;
+
+    margin-bottom:10px;
+
+}
+
+.overview-card p{
+
+    line-height:1.6;
+
+}
+
+</style>
 
 
 
-
-<footer>
-
-    <p>
-
-        © 2027 Tianjin University · MCD-EEG Dataset
-
-    </p>
-
-</footer>
-
-
-
-<script src="js/main.js"></script>
-
-</body>
 
 
 
