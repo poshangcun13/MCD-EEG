@@ -1161,7 +1161,247 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+  <!-- ===================== Benchmark Tasks ===================== -->
 
+<section class="section" id="benchmark">
+
+<div class="container is-max-desktop">
+
+<h2 class="title is-3 has-text-centered">
+Benchmark Tasks
+</h2>
+
+<div class="content has-text-centered mb-6">
+
+<p style="max-width:900px;margin:auto;line-height:1.8;">
+
+MCD-EEG establishes a unified benchmark suite covering multiple EEG representation learning tasks, ranging from conventional brainprint recognition to robustness evaluation under structured distribution shifts, algorithmic fairness assessment, and edge-oriented channel selection.
+
+</p>
+
+</div>
+
+<div class="columns is-multiline">
+
+<!-- Task 1 -->
+
+<div class="column is-4">
+
+<div class="box benchmark-card">
+
+<div class="benchmark-icon">
+
+🧠
+
+</div>
+
+<h3 class="title is-5">
+
+Brainprint Recognition
+
+</h3>
+
+<p>
+
+Closed-set identity recognition using single-session EEG recordings.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Task 2 -->
+
+<div class="column is-4">
+
+<div class="box benchmark-card">
+
+<div class="benchmark-icon">
+
+🔄
+
+</div>
+
+<h3 class="title is-5">
+
+Cross-task Recognition
+
+</h3>
+
+<p>
+
+Evaluate robustness under cognitive state transitions from reading to delayed memory retrieval.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Task 3 -->
+
+<div class="column is-4">
+
+<div class="box benchmark-card">
+
+<div class="benchmark-icon">
+
+📅
+
+</div>
+
+<h3 class="title is-5">
+
+Cross-Re-cap
+
+</h3>
+
+<p>
+
+Assess long-term robustness after complete EEG cap removal and reattachment.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Task 4 -->
+
+<div class="column is-4">
+
+<div class="box benchmark-card">
+
+<div class="benchmark-icon">
+
+⚖️
+
+</div>
+
+<h3 class="title is-5">
+
+Algorithmic Fairness
+
+</h3>
+
+<p>
+
+Evaluate subgroup performance differences between deaf and hearing populations.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Task 5 -->
+
+<div class="column is-4">
+
+<div class="box benchmark-card">
+
+<div class="benchmark-icon">
+
+📡
+
+</div>
+
+<h3 class="title is-5">
+
+Channel Selection
+
+</h3>
+
+<p>
+
+Benchmark lightweight EEG systems using 4-, 8-, and 16-channel configurations.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Task 6 -->
+
+<div class="column is-4">
+
+<div class="box benchmark-card">
+
+<div class="benchmark-icon">
+
+🧩
+
+</div>
+
+<h3 class="title is-5">
+
+Foundation Models
+
+</h3>
+
+<p>
+
+Evaluate general EEG representation learning and transferable neural embeddings.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.benchmark-card{
+
+    height:100%;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    padding:35px 25px;
+
+    border:1px solid #ededed;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.05);
+
+}
+
+.benchmark-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.benchmark-icon{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+.benchmark-card p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+</style>
 
 
 
